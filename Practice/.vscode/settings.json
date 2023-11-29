@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "dounly_linkedlist": "cpp"
+    },
+    "CodeGPT.organizationId": "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",
+    "CodeGPT.model": "gpt-4"
+}
