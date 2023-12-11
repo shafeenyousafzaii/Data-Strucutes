@@ -55,7 +55,14 @@ int main()
             int n;
             cin >> n;
             Node *temp = t.Search(t.Root, n);
-            cout << "[  " << temp->name << "  " << temp->data << "]";
+            if (temp == NULL)
+            {
+                cout << "Not found in pouch" << endl;
+            }
+            else
+            {
+                cout << "[  " << temp->name << "  " << temp->data << "]";
+            }
         }
         else if (input == 3)
         {
@@ -64,9 +71,10 @@ int main()
         }
         else if (input == 4)
         {
+            t.printBST(t.Root,NULL,false);
             cout << "Magical Tree--(In Order)" << endl;
 
-            t.inOrder(t.Root);
+            t.inOrder(t.Root);cout<<endl;
 
             cout << "gems you want to pluck : Enter Power " << endl;
             int pow;

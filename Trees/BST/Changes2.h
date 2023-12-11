@@ -299,17 +299,22 @@ public:
     bool search(Node *curr, int val)
     {
         if (curr == NULL)
-
+        {
             return false;
-
+        }
         if (curr->data == val)
-
+        {
             return true;
-
+        }
         else if (val < curr->data)
+        {
             return search(curr->left, val);
+        }
         else if (val > curr->data)
+        {
             return search(curr->right, val);
+        }
+        return false;
     }
     Node *Search(Node *curr, int val)
     {
@@ -327,13 +332,15 @@ public:
         {
             return Search(curr->right, val);
         }
+        return NULL;
     }
     Node *insert(Node *Curr, int val)
 
     {
         if (Curr == NULL)
         {
-            Curr = new Node(val);
+            return new Node(val);
+            ;
         }
         else if (val < Curr->data)
         {
@@ -439,7 +446,7 @@ public:
                     // cout << "I AM HERE" << endl;
                     Node *p = parent(Root, location, NULL);
                     //(location->right->left != NULL || location->right->right != NULL)
-                    if (location->data == val && p==NULL)
+                    if (location->data == val && p == NULL)
                     {
                         Root = location->right;
                         delete location;
@@ -531,18 +538,20 @@ public:
             else if (location->left != NULL && location->right != NULL)
             {
                 // cout<<"I AM HEREEEEEEEE"<<endl;
-                Node *n = find_successor(location, val);
+                Node *n = find_predessor(location, val);
                 // cout<<"DATA : "<<n->data<<endl;
                 location->data = n->data;
                 // printBST(Root,NULL,false);
-                delete_Nodes(n, n->data);
+                return delete_Nodes(n, n->data);
             }
             // cout<<"ABOVE"<<endl;
         }
         else
         {
             cout << "No value found to delete" << endl;
+            return NULL;
         }
+        return NULL;
     }
 
     Node *find_predessor(Node *r, int val)
@@ -598,38 +607,64 @@ public:
             {
                 return find_predessor(r->right, val);
             }
+            return NULL;
         }
+        return NULL;
     }
-    Node *find_successor(Node *r, int val) {
-    if (val < r->data) {
-        if (r->left == NULL && r->right == NULL) {
-            return r;
-        } else if (r->left == NULL && r->right != NULL) {
-            return r;
-        } else if (r->left != NULL && r->right == NULL) {
-            return r;
-        }
-        return find_successor(r->left, val);
-    } else if (val > r->data) {
-        if (r->left == NULL && r->right == NULL) {
-            return r;
-        } else if (r->left == NULL && r->right != NULL) {
-            return r;
-        } else if (r->left != NULL && r->right == NULL) {
-            return r;
-        }
-        return find_successor(r->right, val);
-    } else if (r->data == val) {
-        if (r->left != NULL && r->right != NULL) {
-            return find_successor(r->right, val);
-        } else if (r->left == NULL && r->right == NULL) {
-            return find_successor(r->right, val);
-        } else if (r->left != NULL && r->right == NULL) {
-            return find_successor(r->left, val);
-        } else if (r->left == NULL && r->right != NULL) {
+    Node *find_successor(Node *r, int val)
+    {
+        if (val < r->data)
+        {
+            if (r->left == NULL && r->right == NULL)
+            {
+                return r;
+            }
+            else if (r->left == NULL && r->right != NULL)
+            {
+                return r;
+            }
+            else if (r->left != NULL && r->right == NULL)
+            {
+                return r;
+            }
             return find_successor(r->left, val);
         }
+        else if (val > r->data)
+        {
+            if (r->left == NULL && r->right == NULL)
+            {
+                return r;
+            }
+            else if (r->left == NULL && r->right != NULL)
+            {
+                return r;
+            }
+            else if (r->left != NULL && r->right == NULL)
+            {
+                return r;
+            }
+            return find_successor(r->right, val);
+        }
+        else if (r->data == val)
+        {
+            if (r->left != NULL && r->right != NULL)
+            {
+                return find_successor(r->right, val);
+            }
+            else if (r->left == NULL && r->right == NULL)
+            {
+                return find_successor(r->right, val);
+            }
+            else if (r->left != NULL && r->right == NULL)
+            {
+                return find_successor(r->left, val);
+            }
+            else if (r->left == NULL && r->right != NULL)
+            {
+                return find_successor(r->left, val);
+            }
+        }
     }
-}
 
+    
 };

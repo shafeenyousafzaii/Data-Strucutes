@@ -4,7 +4,7 @@
 int main()
 {
     BST t;
-    t.set_root(t.insert(t.Root, 18));
+    // t.set_root(t.insert(t.Root, 18));
     // t.insert(t.Root, 60);
     // t.insert(t.Root, 30);
     // t.insert(t.Root, 40);
@@ -28,12 +28,12 @@ int main()
             int num;
             cout<<"Enter the number to be inserted:";
             cin>>num;
-            if(t.Root==NULL)
-            {
-                t.set_root(t.insert(t.Root,num));
-            }
-            else
-            t.insert(t.Root,num);
+            // if(t.Root==NULL)
+            // {
+            //     t.set_root(t.insert(t.Root,num));
+            // }
+            // else
+            t.Root=t.insert(t.Root,num);
         }
         else if(input==2)
         {
