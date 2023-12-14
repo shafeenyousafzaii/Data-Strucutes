@@ -1,6 +1,6 @@
-#include<iostream>
-#include<string>
-#include"Changes2.h"
+#include <iostream>
+#include <string>
+#include "Question_two_BST.h"
 int main()
 {
     BST t;
@@ -15,56 +15,66 @@ int main()
     int input;
     while (1)
     {
-        cout<<"1.Insert in Tree"<<endl;
-        cout<<"2.Delete from tree"<<endl;
-        cout<<"3.Inorder Triversal"<<endl;
-        cout<<"4.PreOrdeer Triversal"<<endl;
-        cout<<"5.PostOrder Traversal"<<endl;
-        cout<<"6.Print the tree"<<endl;
-        cout<<"7.Question#2"<<endl;
-        cout<<"Enter your choice:"<<endl;
-        cin>>input;
-        if(input==1)
+        cout << "1.Insert in Tree" << endl;
+        cout << "2.Delete from tree" << endl;
+        cout << "3.Inorder Triversal" << endl;
+        cout << "4.PreOrdeer Triversal" << endl;
+        cout << "5.PostOrder Traversal" << endl;
+        cout << "6.Print the tree" << endl;
+        cout << "7.Question#2" << endl;
+        cout << "Enter your choice:" << endl;
+        cin >> input;
+        if (input == 1)
         {
             int num;
-            cout<<"Enter the number to be inserted:";
-            cin>>num;
+            cout << "Enter the number to be inserted:";
+            cin >> num;
             // if(t.Root==NULL)
             // {
             //     t.set_root(t.insert(t.Root,num));
             // }
             // else
-            t.Root=t.insert(t.Root,num);
+            t.Root = t.insert(t.Root, num);
         }
-        else if(input==2)
+        else if (input == 2)
         {
             int num;
-            cout<<"Enter the number to be deleted:";
-            cin>>num;
-            t.delete_Nodes(t.Root,num);
-            t.printBST(t.Root,NULL,0);
+            cout << "Enter the number to be deleted:";
+            cin >> num;
+            t.delete_Nodes(t.Root, num);
+            t.printBST(t.Root, NULL, 0);
         }
-        else if(input==3)
+        else if (input == 3)
         {
             t.inOrder(t.Root);
         }
-        else if(input==4)
+        else if (input == 4)
         {
             t.preOrder(t.Root);
         }
-        else if(input==5)
+        else if (input == 5)
         {
             t.postOrder(t.Root);
         }
-        else if(input==6)
+        else if (input == 6)
         {
-            t.printBST(t.Root,NULL,false);
+            t.printBST(t.Root, NULL, false);
         }
-        else if(input==7)
+        else if (input == 7)
         {
-            
+            int k;
+            bool yes;
+            cout << "Enter the value of k for this " << endl;
+            cin >> k;
+            yes = t.Question2(t.Root, t.Root, k);
+            if (yes == true)
+            {
+                cout << "Product found" << endl;
+            }
+            else
+                cout << "Product not found" << endl;
         }
         else
-        break;
+            break;
     }
 }

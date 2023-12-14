@@ -665,7 +665,39 @@ public:
             }
         }
     }
+    bool Question2_2(Node *n,int dataaa,int k)
+    {
+        if (n == NULL)
+            return false;
 
-    
+        Question2_2(n->left,dataaa,k);
+          if (dataaa * n->data == k)
+        {
+            cout<< " DATA : "<<dataaa<<endl;
+            cout<< "n->data : "<<n->data<<endl;
+            return true;
+        }
+        // cout << n->data << "\t";
+        Question2_2(n->right,dataaa,k);
+    }
+
+    bool Question2(Node *n, Node *knode, int k)
+    {
+        bool yes;
+        if (n == NULL)
+            return false;
+        else
+        {
+            yes = Question2_2(n,knode->data,k);
+            if(yes==true)
+            {
+                return true;
+            }
+            Question2(n->left, n, k);
+            // cout << n->data << "\t";
+            Question2(n->right, n, k);
+
+        }
+        // return false;
+    }
 };
-
